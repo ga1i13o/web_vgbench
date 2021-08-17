@@ -1,0 +1,17 @@
+.below-nav {
+    padding-top: 6rem;
+}
+
+.centered-div{
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+    height: 100%;
+}
+
+.footer {
+    background-color: #343a40 ;
+    bottom: 0;
+    height: 10rem;
+    margin-top: 5rem;
+}
