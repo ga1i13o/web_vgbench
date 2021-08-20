@@ -4,8 +4,10 @@ import './custom.css';
 
 import { BrowserRouter as Router, Redirect, Route, Switch, NavLink } from 'react-router-dom';
 import { Button, Navbar, Form, Col, Nav } from 'react-bootstrap';
-import {NavigationBar} from './navBar';
+import { NavigationBar } from './navBar';
 import { Home } from './home';
+import { Datasets } from './datasets';
+import { BenchResults } from './benchResult';
 
 
 function App() {
@@ -22,6 +24,10 @@ function App() {
                 <Home/>
               </Route>
               <Route exact path="/datasets">
+                <Datasets/>
+              </Route>
+              <Route exact path="/results">
+                <BenchResults/>
               </Route>
               <Route>
                 <Redirect to="/" /> 

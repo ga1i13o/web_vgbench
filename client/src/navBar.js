@@ -18,7 +18,7 @@ function NavigationBar(props) {
             <Nav className="mr-auto">
                 <NavLink to="/" style={{ color: '#FFF' }} className="pl-10 mr-2">Home</NavLink>
                 <NavLink to="/datasets" style={{ color: '#FFF' }} className="mx-2">Datasets</NavLink>
-                <NavLink to="/bench" style={{ color: '#FFF' }} className="mx-2">Benchmark</NavLink>
+                <NavLink to="/results" style={{ color: '#FFF' }} className="mx-2">Benchmark</NavLink>
             </Nav>
         </Navbar.Collapse>
     
