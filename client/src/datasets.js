@@ -7,7 +7,7 @@ function Datasets(props){
     return (
         <>
             <div className="d-block mt-5 justify-content-between" 
-        style={{ marginLeft: '10rem', marginRight: '20rem' }}>
+        style={{ marginLeft: '10rem', marginRight: '10rem' }}>
         
             <h3>Geo-Localization datasets</h3>
             <div className="mt-4">

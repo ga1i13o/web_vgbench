@@ -19,7 +19,7 @@ function Home(props){
         </div>
 
         <div className="d-block mt-5 justify-content-between" 
-        style={{ marginLeft: '10rem', marginRight: '20rem' }}>
+        style={{ marginLeft: '10rem', marginRight: '10rem' }}>
         
             <h2>The Visual Place Recognition benchmark</h2>
             <div className="mt-4">

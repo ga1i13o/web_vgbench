@@ -8,9 +8,13 @@ import { NavigationBar } from './navBar';
 import { Home } from './home';
 import { Datasets } from './datasets';
 import { BenchResults } from './benchResult';
+import { AllTables } from './result';
+import { Software } from './software';
 
 
 function App() {
+  const data = new AllTables('./tables');
+
   return (
     <Router>
       <NavigationBar/>
@@ -27,7 +31,10 @@ function App() {
                 <Datasets/>
               </Route>
               <Route exact path="/results">
-                <BenchResults/>
+                <BenchResults data={data}/>
+              </Route>
+              <Route exact path='/software'>
+                <Software/>
               </Route>
               <Route>
                 <Redirect to="/" /> 
@@ -45,7 +52,7 @@ function App() {
             <NavLink to="/" style={{ color: '#FFF' }} className="App-logo">VPR Benchmark</NavLink>
         </span>
     
-    </Navbar>
+      </Navbar>
     </Router>
   );
 }
