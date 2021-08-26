@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
 import { Button, Navbar, Form, Col, Nav } from 'react-bootstrap';
 import { NavLink, Route } from 'react-router-dom';
 import benchlogo from './imgs/benchlogo.png';
@@ -19,6 +18,11 @@ function NavigationBar(props) {
                 <NavLink to="/" style={{ color: '#FFF' }} className="pl-10 mr-2">Home</NavLink>
                 <NavLink to="/datasets" style={{ color: '#FFF' }} className="mx-2">Datasets</NavLink>
                 <NavLink to="/results" style={{ color: '#FFF' }} className="mx-2">Benchmark</NavLink>
+                <NavLink to="/software" style={{ color: '#FFF' }} className="mx-2">Our Software</NavLink>
+                <NavLink to="#" onClick={ev => {
+                    ev.preventDefault();
+                    props.handleShowContacts();
+                }} style={{ color: '#FFF' }} className="mx-2">Contact us</NavLink>
             </Nav>
         </Navbar.Collapse>
     

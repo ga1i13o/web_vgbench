@@ -7,10 +7,30 @@ function Result(json_data) {
     this.msls_trained = this.msls_trained_fields.map( name => json_data[name]);
     this.params = this.params_fields.map( name => json_data[name]);
 
+    this.pitts_trained_fields = this.pitts_trained_fields
+                                .map( prop => prop.replace('Pitts_', ''));
+    this.msls_trained_fields = this.msls_trained_fields
+                                .map( prop => prop.replace('MSLS_', ''));
+
 }
 
 function ResultsList(json_list){
     this.results = json_list.map( json_el => new Result(json_el));
 }
 
-export { Result, ResultsList};
+function AllTables(folder){
+    const context = require.context('./tables', true, /.json$/);
+    this.all = {};
+    this.table_list = [];
+    context.keys().forEach((key) => {
+        const fileName = key.replace('./', '');
+        const resource = require(`./tables/${fileName}`);
+        const namespace = fileName.replace('.json', '');
+        //all[namespace] = JSON.parse(JSON.stringify(resource));
+        this.all[namespace] = new ResultsList(JSON.parse(JSON.stringify(resource)));
+        this.table_list.push(namespace);
+    });
+    console.log(this.all);
+}
+
+export { Result, ResultsList, AllTables };
