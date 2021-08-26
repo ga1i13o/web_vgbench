@@ -8,9 +8,9 @@ function Result(json_data) {
     this.params = this.params_fields.map( name => json_data[name]);
 
     this.pitts_trained_fields = this.pitts_trained_fields
-                                .map( (prop, pos) => pos > 0 ? prop.replace('Pitts_', '') : prop);
+                                .map( prop => prop.replace('Pitts_', ''));
     this.msls_trained_fields = this.msls_trained_fields
-                                .map( (prop, pos) => pos > 0 ? prop.replace('MSLS_', '') : prop);
+                                .map( prop => prop.replace('MSLS_', ''));
 
 }
 

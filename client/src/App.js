@@ -1,6 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
+import { useState } from 'react';
 
 import { BrowserRouter as Router, Redirect, Route, Switch, NavLink } from 'react-router-dom';
 import { Button, Navbar, Form, Col, Nav } from 'react-bootstrap';
@@ -10,14 +11,21 @@ import { Datasets } from './datasets';
 import { BenchResults } from './benchResult';
 import { AllTables } from './result';
 import { Software } from './software';
+import { ContactsModal } from './contacts_modal';
+import { Footer } from './footer';
 
 
 function App() {
+  // states to handle contacts modal  
+  const [showContacts, setShowContacts] = useState(false);
+  const handleClose = () => setShowContacts(false);
+  const handleShow = () => setShowContacts(true);
+  // data for the benchmark tables
   const data = new AllTables('./tables');
 
   return (
     <Router>
-      <NavigationBar/>
+      <NavigationBar handleShowContacts={handleShow}/>
       
       {/*<!-- Content of the page -->*/}
       <div className="container-fluid">
@@ -40,19 +48,13 @@ function App() {
                 <Redirect to="/" /> 
               </Route>
             </Switch>
-
-            
+            <ContactsModal show={showContacts}
+                  handleShow={handleShow}
+                  handleClose={handleClose}/>
           </main>
         </div>        
       </div>
-      <Navbar bg="dark" variant="dark" style={{ bottom: 0, backgroundColor: '#343a40'}} className="footer">
-        
-        {/*<!-- Logo and title -->*/}
-        <span className="navbar-brand">
-            <NavLink to="/" style={{ color: '#FFF' }} className="App-logo">VPR Benchmark</NavLink>
-        </span>
-    
-      </Navbar>
+      <Footer handleShowContacts={handleShow}/>
     </Router>
   );
 }

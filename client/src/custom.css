@@ -15,3 +15,12 @@
     height: 10rem;
     margin-top: 5rem;
 }
+
+.center-modal{
+    margin-inline: 2rem;
+}
+
+.mail-link:hover{
+    text-decoration: underline;
+    color: #007bff;
+}
