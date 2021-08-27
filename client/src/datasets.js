@@ -1,19 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
-import { Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { Table, Card , Image} from 'react-bootstrap';
+import pitts_map from './imgs/map_pitts30k.png';
+import msls_map from './imgs/map_msls.png';
+import tokyo_map from './imgs/map_tokyo247.png';
+import sf_map from './imgs/map_san_francisco.png';
+import eyn_map from './imgs/map_eynsham.png';
+import lucia_map from './imgs/map_st_lucia.png';
+import data_table from './tables/datasets/dataset_table.json';
+import { DatasetTable } from './table_data';
 
 
 function Datasets(props){
+    const datasets_table = new DatasetTable(data_table);
     return (
         <>
-            <div className="d-block mt-5 justify-content-between" 
-        style={{ marginLeft: '10rem', marginRight: '10rem' }}>
+            <div className="d-block mx-xxl-10 mx-sm-5">
         
             <h3>Geo-Localization datasets</h3>
             <div className="mt-4">
-                Below you may find some general information about, and links to, the visual place recognition datasets.<br/> 
-                For more detailed documentation about the organization of each dataset, please refer to the accompanying readme file for each dataset. 
-                The license terms and conditions are also laid out in the readme files. 
+                Below you may find some general information about the visual place recognition datasets.<br/> 
                 <br/>
                 During the years, a large number of datasets has been proposed for visual geolocalization.
                 An ideal dataset for visual geolocalization should have the following properties: 
@@ -33,19 +39,80 @@ function Datasets(props){
                 <br/>Time machine refers to the presence of images collected at different times in the same location.
                 Note that time machine is essential for training a neural network, because it allows the
                 model to build robustness to temporal change.
+                <br/><br/>
+                Below is reported first a table summary of the datasets that satisfy the conditions above and that were
+                used in our work, and then a presentation more in detail for each one of them.<br/>
+                The datasets used in the benchmark provide not only a broad variability in terms of geographical
+                locations and domains, but also in the extension of the covered area and how the images 
+                are collected (densely on the whole area, or only on some routes).
                 </div>
-
+            </div>
+            <div>
+                <Table striped bordered hover className='mx-auto mt-4' style={{width:'70rem', textAlign:'center'}}>
+                    <caption>Table: <b>Summary of the datasets used</b>.Regarding images types:  "panorama" means that the images are 
+                    cropped from a 360°panorama image (and eventually undistorted); "front-view" means that only one (forward facing)
+                     view is available; "phone" means that photos were collected with a smartphone. "panorama" and "front-view"
+                      images were taken with cameras on the roof of a car.
+                      <br/>∗ForMSLS a limited amount of sideways images is
+                       available.
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            {
+                               datasets_table.data[0].fields.map( name => <th className='mx-5'  key={name}>{name}</th>)
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {datasets_table.data.map( (el, pos) =>
+                            <tr key={pos}>
+                                <td style={{width:'2rem'}}>{pos}</td>
+                                {
+                                    el.data.map( name => <td style={{}}>{name}</td>)
+                                }
+                                
+                            </tr>
+                        )}
+                    </tbody>
+                </Table>
+            </div>
+            <div className="mx-xxl-10 mx-sm-5" >
                 <Card className="mt-4">
                     <Card.Header>Pittsburgh</Card.Header>
+                   
                     <Card.Body>
                         <Card.Title>Pitts30k</Card.Title>
                         <Card.Text>
+                            <div className='d-flex'>
+                                <div>
                             Developed by Arandjelovic et al., presented together with the
                             widely used NetVLAD layer. It is available in an extended (Pitts250k) and 
-                            reduced (Pitts30k) version. <br/>In our benchmark we used predominantly the latter.
-                            It is available from the author's website on request.
+                            reduced (Pitts30k) version. <br/>
+                            It is split in train, val and test set; its images are collected from Google Street
+                            View imagery from the city of Pittsburgh. Gallery and query are collected two 
+                            years apart, and there are no noticeable weather variations.
+                            <br/>
+                            In our benchmark we used Pitts30k, together 
+                            with Mapillary SLS, to train all models. The other datasets were used
+                            to test the generalization capabilities after training on one of the aforementioned.
+                            <br/><br/>
+                            As all the datasets that we mention, is available from the author's website on request, 
+                            but also, and more conveniently, downloadable using our specific software.
+                            Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
+                            in the repository README.
+                            </div>
+                            <div className="text-center ml-5">
+                        <Image src={pitts_map} className="esc-logo slide-top center-block"  
+                                alt='pipeline representation'
+                                style={{
+                            flex: 1,
+                            width: '750px',
+                            height: '450px',
+                            resizeMode: 'contain' }}
+                                /></div>
+                                </div>
                         </Card.Text>
-                        <Button href="https://www.di.ens.fr/willow/research/netvlad/" variant="primary">Download Pittsburgh</Button>
                     </Card.Body>
                 </Card>
 
@@ -55,15 +122,36 @@ function Datasets(props){
                     <Card.Body>
                         <Card.Title>Mapillary Street-level Sequences</Card.Title>
                         <Card.Text>
+                        <div className='d-flex'>
+                                <div>
                             Mapillary Street-level Sequences (MSLS) is a large-scale long-term place recognition
                             dataset that contains 1.6M street-level images developed by the homonymous company.
+                            <br/>
                             It is a huge project that contains images spanning over a decade from 30 cities all over
-                            the world, as well as different domains (night/day, winter/summer, Sunny/Rainy..).
-                            It is also possible to use seq2seq, im2seq, seq2im data; the focus is on 
-                            Lifelong place recognition, to build robust and efficient geo-localization systems.
-                            It is free to download upon registration on their website. 
+                            the world, as well as different domains (night/day, winter/summer, Sunny/Rainy..),
+                            cameras and seasons.
+                            <br/>
+                            As for Pitts30k, it is split in train, val and test set, although the
+                            test set's ground truths are not currently released. 
+                            We therefore report the validation recalls, following previous works.
+                            Together with Pitts30k it is one of the 2 datasets that we use for training.
+                            <br/><br/>
+                            It is available from the author's website on request, 
+                            but also, and more conveniently, downloadable using our specific software.
+                            Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
+                            in the repository README.   
+                            </div>
+                            <div className="text-center ml-5">
+                        <Image src={msls_map} className="esc-logo slide-top center-block"  
+                                alt='pipeline representation'
+                                style={{
+                            flex: 1,
+                            width: '750px',
+                            height: '450px',
+                            resizeMode: 'contain' }}
+                                /></div>
+                                </div>                     
                         </Card.Text>
-                        <Button href="https://www.mapillary.com/dataset/places" variant="primary">Download Mapillary</Button>
                     </Card.Body>
                 </Card>
 
@@ -72,13 +160,137 @@ function Datasets(props){
                     <Card.Body>
                         <Card.Title>Tokyo 24/7</Card.Title>
                         <Card.Text>
+                        <div className='d-flex'>
+                                <div>
                             Collected again by Arandjelovic et al., the dataset contains images from the city of
-                            Tokyo with a focus on domain shifts: each place in the query set is captured at 
-                            different times of day: daytime, sunset, and night.  
-                            Therefore there can be major changes in appearance (illumination and viewpoint changes in the scene) 
-                            Available upon request on the related website.
+                            Tokyo and presents a relatively large gallery (from Google Street View) against a smaller number of 
+                            queries, which are split into three equally sized sets: day, sunset and night.
+                            The latter are manually collected with phones. <br/>
+                            In some cases Tokyo Time Machine (Tokyo TM) is used as a training set for Tokyo 24/7.
+                            <br/> We use it to test the transferability of the learnt feature descriptor extractors of 
+                            models trained on either Pitts30k or MSLS.
+                            <br/><br/>
+                            It is available from the author's website on request, 
+                            but also, and more conveniently, downloadable using our specific software.
+                            Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
+                            in the repository README.
+                            </div>
+                            <div className="text-center ml-5">
+                        <Image src={tokyo_map} className="esc-logo slide-top center-block"  
+                                alt='pipeline representation'
+                                style={{
+                            flex: 1,
+                            width: '750px',
+                            height: '450px',
+                            resizeMode: 'contain' }}
+                                /></div>
+                                </div>
                         </Card.Text>
-                        <Button href="http://www.ok.ctrl.titech.ac.jp/~torii/project/247/" variant="primary">Download Tokyo 24/7</Button>
+                    </Card.Body>
+                </Card>
+
+                <Card className="mt-4">
+                    <Card.Header>San Francisco</Card.Header>
+                    <Card.Body>
+                        <Card.Title>SF-0</Card.Title>
+                        <Card.Text>
+                        <div className='d-flex'>
+                                <div>
+
+                            Similarly to Tokyo 24/7, the San Francisco dataset is composed of a large gallery collected by a 
+                            car-mounted camera and orders of magnitude less queries taken by phone.
+                            Of the multiple Structure from Motion reconstructions available, we use the one from 
+                            <a href='https://hal.inria.fr/hal-01513083/file/Sattler17.pdf'>Torii-2021</a> as it offers
+                            the most accurate query 6DoF coordinates.
+                            <br/> We use it to test the generalization of the 
+                            models trained on either Pitts30k or MSLS.
+                            <br/><br/>
+                            It is available from the author's website on request, 
+                            but also, and more conveniently, downloadable using our specific software.
+                            Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
+                            in the repository README.
+                            </div>
+                            <div className="text-center ml-5">
+                        <Image src={sf_map} className="esc-logo slide-top center-block"  
+                                alt='pipeline representation'
+                                style={{
+                            flex: 1,
+                            width: '750px',
+                            height: '450px',
+                            resizeMode: 'contain' }}
+                                /></div>
+                                </div>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+
+                <Card className="mt-4">
+                    <Card.Header>Eynsham</Card.Header>
+                    <Card.Body>
+                        <Card.Title>Eynsham</Card.Title>
+                        <Card.Text>
+                        <div className='d-flex'>
+                                <div>
+
+                            This dataset was created back in 2009 and consists of grayscale images from cameras 
+                            mounted on a car going around around a loop twice, in the city and countryside of Oxford. 
+                            <br/>
+                            We use the first loop as gallery, and second as queries.
+                            <br/> We test on it models trained on either Pitts30k or MSLS to evaluate the transferability
+                             of the learnt feature descriptor extractors.
+                            <br/><br/>
+                            It is available from the author's website on request, 
+                            but also, and more conveniently, downloadable using our specific software.
+                            Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
+                            in the repository README.
+                            </div>
+                            <div className="text-center ml-5">
+                        <Image src={eyn_map} className="esc-logo slide-top center-block"  
+                                alt='pipeline representation'
+                                style={{
+                            flex: 1,
+                            width: '750px',
+                            height: '450px',
+                            resizeMode: 'contain' }}
+                                /></div>
+                                </div>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+
+                <Card className="mt-4">
+                    <Card.Header>St Lucia</Card.Header>
+                    <Card.Body>
+                        <Card.Title>St Lucia</Card.Title>
+                        <Card.Text>
+                        <div className='d-flex'>
+                                <div>
+
+                            The St Lucia dataset is collected by driving a car with a forward facing camera around the riverside
+                            suburb of St Lucia, Brisbane. Of the nine drives, we use the first and the last one
+                            as gallery and queries. Given the high density of the images (extracted from videos),
+                            we select only one frame every 5 meters. Note that all these pre-processing steps 
+                            (as well as downloading) are performed automatically with our open source codebase, that you
+                            can find linked on this website.
+                            <br/> We use this dataset to test the transferability of the learnt feature descriptor extractors of 
+                            models trained on either Pitts30k or MSLS.
+                            <br/><br/>
+                            It is available from the author's website on request, 
+                            but also, and more conveniently, downloadable using our specific software.
+                            Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
+                            in the repository README.
+                            </div>
+                            <div className="text-center ml-5">
+                        <Image src={lucia_map} className="esc-logo slide-top center-block"  
+                                alt='pipeline representation'
+                                style={{
+                            flex: 1,
+                            width: '750px',
+                            height: '450px',
+                            resizeMode: 'contain' }}
+                                /></div>
+                                </div>
+                        </Card.Text>
                     </Card.Body>
                 </Card>
             </div>

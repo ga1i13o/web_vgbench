@@ -24,3 +24,9 @@
     text-decoration: underline;
     color: #007bff;
 }
+
+@media (min-width: 1500px) {
+    .mx-xxl-10 {
+      margin-inline: 10rem !important;
+    }
+}

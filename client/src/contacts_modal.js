@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
-import { Alert, Button, Modal, Form } from 'react-bootstrap';
+import {  Button, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 
 function ContactsModal(props) {

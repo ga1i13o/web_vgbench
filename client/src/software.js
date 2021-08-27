@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
-import { Button, Nav, Tabs, Tab, Container, Row, Col, Card, Table, Dropdown, Form } from 'react-bootstrap';
+import { Button, Tabs, Tab, Card } from 'react-bootstrap';
 
 function Software(props){
     return (
         <div className='row'>
-        <div className="d-block mt-2 justify-content-between" 
+        <div className="d-block justify-content-between" 
                 style={{ marginLeft: '10rem', marginRight: '10rem' }}>
         
             <h3>Our Software</h3>

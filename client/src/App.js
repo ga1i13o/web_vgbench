@@ -3,13 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import { useState } from 'react';
 
-import { BrowserRouter as Router, Redirect, Route, Switch, NavLink } from 'react-router-dom';
-import { Button, Navbar, Form, Col, Nav } from 'react-bootstrap';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import { NavigationBar } from './navBar';
 import { Home } from './home';
 import { Datasets } from './datasets';
 import { BenchResults } from './benchResult';
-import { AllTables } from './result';
+import { AllTables } from './table_data';
 import { Software } from './software';
 import { ContactsModal } from './contacts_modal';
 import { Footer } from './footer';
