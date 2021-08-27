@@ -18,7 +18,7 @@ function Footer(props) {
         <h1 style={{ color: "#007bff", 
                      textAlign: "center", 
                      marginTop: "-50px" }}>
-          The VPR benchmark
+          The VG benchmark
         </h1>
         <Container>
           <Row>

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import pipeline from './imgs/pipeline.png';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 
 
 function Home(props){
@@ -21,9 +21,9 @@ function Home(props){
         <div className="d-block mt-5 justify-content-between" 
         style={{ marginLeft: '10rem', marginRight: '10rem' }}>
         
-            <h2>The Visual Place Recognition benchmark</h2>
+            <h2>The Visual Geo-localization benchmark</h2>
             <div className="mt-4">
-            Visual place recognition is, broadly speaking, the task of
+            Visual Geo-localization is, broadly speaking, the task of
 recognizing the place depicted in an image (or a sequence
 of images). This task is commonly addressed as an image
 retrieval problem. In this formulation, the prior knowledge
@@ -50,7 +50,7 @@ the similarity search
     </li>
 </ul>
 
-The need for a standardized and systematic way to benchmark visual geo-localization methods is largely acknowledged and few benchmarks 
+The need for a standardized and systematic way to benchmark Visual Geo-localization methods is largely acknowledged and few benchmarks 
 have already been proposed; therefore in order to:
 <ul>
 <li>

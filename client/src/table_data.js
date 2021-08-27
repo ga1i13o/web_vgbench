@@ -10,8 +10,7 @@ function Result(json_data) {
     this.pitts_trained_fields = this.pitts_trained_fields
                                 .map( prop => prop.replace('Pitts_', ''));
     this.msls_trained_fields = this.msls_trained_fields
-                                .map( prop => prop.replace('MSLS_', ''));
-
+                                .map( prop => prop.replace('MSLS_', ''));   
 }
 
 function ResultsList(json_list){
@@ -26,11 +25,22 @@ function AllTables(folder){
         const fileName = key.replace('./', '');
         const resource = require(`./tables/${fileName}`);
         const namespace = fileName.replace('.json', '');
-        //all[namespace] = JSON.parse(JSON.stringify(resource));
-        this.all[namespace] = new ResultsList(JSON.parse(JSON.stringify(resource)));
-        this.table_list.push(namespace);
+        if (!(namespace.includes('dataset'))){ 
+            //all[namespace] = JSON.parse(JSON.stringify(resource));
+            this.all[namespace] = new ResultsList(JSON.parse(JSON.stringify(resource)));
+            this.table_list.push(namespace);
+        }
     });
     console.log(this.all);
 }
 
-export { Result, ResultsList, AllTables };
+function DatasetRow(json_el){
+    this.fields = Object.getOwnPropertyNames(json_el);
+    this.data = Object.values(json_el);
+}
+
+function DatasetTable(json_list){
+    this.data = json_list.map( json_el => new DatasetRow(json_el));
+}
+
+export { AllTables, DatasetTable };

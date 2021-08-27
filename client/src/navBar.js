@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Navbar, Form, Col, Nav } from 'react-bootstrap';
-import { NavLink, Route } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import benchlogo from './imgs/benchlogo.png';
 
 
@@ -11,7 +11,7 @@ function NavigationBar(props) {
         {/*<!-- Logo and title -->*/}
         <span className="navbar-brand">
             <img src={benchlogo} className="App-logo" alt="logo" />
-            <NavLink to="/" style={{ color: '#FFF' }} className="App-logo">VPR Benchmark</NavLink>
+            <NavLink to="/" style={{ color: '#FFF' }} className="App-logo">VG Benchmark</NavLink>
         </span>
         <Navbar.Collapse>
             <Nav className="mr-auto">
@@ -30,4 +30,4 @@ function NavigationBar(props) {
 
 }
 
-export {NavigationBar};
+export { NavigationBar };

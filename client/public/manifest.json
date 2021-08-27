@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "VG bench",
+  "name": "The VG benchmark",
   "icons": [
     {
       "src": "favicon.ico",
