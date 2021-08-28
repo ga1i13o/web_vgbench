@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import { useState, useEffect } from 'react';
-import { Table, Dropdown, Form } from 'react-bootstrap';
+import { Table, Dropdown, Form, Alert } from 'react-bootstrap';
 
 
 function BenchResults(props){
@@ -244,7 +244,13 @@ function BenchResults(props){
                 </Dropdown.Menu>
             </Dropdown>
             { renderSortOrderButton() }
+            <Alert variant='secondary' className='mx-auto mt-5'>
+                The code for the NetVLAD layer was used from the official repository, released under MIT license.<br/>
+                Also the pretrained backbones with GeM + FC aggregator by Radenovic et al. were downloaded under
+                MIT license.
+            </Alert>
             </div>
+            
         </div>
     )
 }
