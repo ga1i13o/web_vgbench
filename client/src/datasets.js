@@ -19,7 +19,8 @@ function Datasets(props){
         
             <h3>Geo-Localization datasets</h3>
             <div className="mt-4">
-                Below you may find some general information about the visual place recognition datasets.<br/> 
+                Below you may find some general information about the visual place recognition datasets, as well as 
+                informations about the license terms and conditions for the use of the mentioned datasets.<br/> 
                 <br/>
                 During the years, a large number of datasets has been proposed for visual geolocalization.
                 An ideal dataset for visual geolocalization should have the following properties: 
@@ -97,8 +98,10 @@ function Datasets(props){
                             with Mapillary SLS, to train all models. The other datasets were used
                             to test the generalization capabilities after training on one of the aforementioned.
                             <br/><br/>
-                            As all the datasets that we mention, is available from the author's website on request, 
-                            but also, and more conveniently, downloadable using our specific software.
+                            It is available from the author's website on request, on a non-commercial basis. Copyright and all rights therein are maintained by 
+                            the authors It is understood that all persons copying this information will adhere to the terms and constraints invoked 
+                            by each author's copyright.
+                            It is also conveniently downloadable using our specific software.
                             Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
                             in the repository README.
                             </div>
@@ -115,7 +118,6 @@ function Datasets(props){
                         </Card.Text>
                     </Card.Body>
                 </Card>
-
 
                 <Card className="mt-4">
                     <Card.Header>Mapillary</Card.Header>
@@ -136,6 +138,8 @@ function Datasets(props){
                             We therefore report the validation recalls, following previous works.
                             Together with Pitts30k it is one of the 2 datasets that we use for training.
                             <br/><br/>
+                            The Mapillary Street-level Sequences Dataset is provided under the 
+                            <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'> Creative Commons Attribution NonCommercial Share Alike (CC BY-NC-SA) license. </a>
                             It is available from the author's website on request, 
                             but also, and more conveniently, downloadable using our specific software.
                             Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
@@ -170,8 +174,10 @@ function Datasets(props){
                             <br/> We use it to test the transferability of the learnt feature descriptor extractors of 
                             models trained on either Pitts30k or MSLS.
                             <br/><br/>
-                            It is available from the author's website on request, 
-                            but also, and more conveniently, downloadable using our specific software.
+                            It is available from the author's website on request, on a non-commercial basis. Copyright and all rights therein are maintained by 
+                            the authors It is understood that all persons copying this information will adhere to the terms and constraints invoked 
+                            by each author's copyright.
+                            It is also conveniently downloadable using our specific software.
                             Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
                             in the repository README.
                             </div>
@@ -205,8 +211,9 @@ function Datasets(props){
                             <br/> We use it to test the generalization of the 
                             models trained on either Pitts30k or MSLS.
                             <br/><br/>
-                            It is available from the author's website on request, 
-                            but also, and more conveniently, downloadable using our specific software.
+                            It is distributed by the authors via the Stanford Digital Repository;  User agrees that content will not be used
+                            to identify or to otherwise infringe the privacy or confidentiality rights of individuals. 
+                            It is also conveniently downloadable using our specific software.
                             Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
                             in the repository README.
                             </div>
@@ -239,8 +246,9 @@ function Datasets(props){
                             <br/> We test on it models trained on either Pitts30k or MSLS to evaluate the transferability
                              of the learnt feature descriptor extractors.
                             <br/><br/>
-                            It is available from the author's website on request, 
-                            but also, and more conveniently, downloadable using our specific software.
+                            It is available from the author's website on request, under the 
+                            <a href='https://creativecommons.org/licenses/by/4.0/legalcode'>  Creative Commons Attribution 4.0 International </a> license.
+                            It is also conveniently downloadable using our specific software.
                             Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
                             in the repository README.
                             </div>
@@ -275,8 +283,9 @@ function Datasets(props){
                             <br/> We use this dataset to test the transferability of the learnt feature descriptor extractors of 
                             models trained on either Pitts30k or MSLS.
                             <br/><br/>
-                            It is available from the author's website on request, 
-                            but also, and more conveniently, downloadable using our specific software.
+                            It is available from the author's website on request, under the 
+                            <a href='http://creativecommons.org/licenses/by-nc/3.0/au/'>  Creative Commons Attribution-NonCommercial 3.0 </a> license.
+                            It is also conveniently downloadable using our specific software.
                             Links to our software are on the <i>'Our Software'</i> section, and instructions for using it
                             in the repository README.
                             </div>
