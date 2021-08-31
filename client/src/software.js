@@ -1,8 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import { Button, Tabs, Tab, Card } from 'react-bootstrap';
+import { links } from './links';
+
 
 function Software(props){
+    console.log(links);
     return (
         <div className='row'>
         <div className="d-block justify-content-between" 
@@ -35,7 +38,7 @@ function Software(props){
     <Card.Text>
         Repository implementing all the options for the possible steps of a VPR pipeline
     </Card.Text>
-    <Button href='https://github.com/s252805/benchmarking_vg' variant="primary">Repository</Button>
+    <Button href={links.bench_repo} variant="primary">Repository</Button>
   </Card.Body>
   </Card>
   </Tab>
@@ -47,7 +50,7 @@ function Software(props){
         This piece of software provides a utility to easily download the datasets analyzed and format them
         the way that the benchmarking software expects
     </Card.Text>
-    <Button href='https://github.com/s252805/datasets_vg' variant="primary">Repository</Button>
+    <Button href={links.data_repo} variant="primary">Repository</Button>
   </Card.Body>
   </Card>
   </Tab>
@@ -59,7 +62,7 @@ function Software(props){
         This repository allows to experiment by pre-training the various architectures on 
         landmark recognition datasets such as Google Landmark and Places365
     </Card.Text>
-    <Button href='https://github.com/rm-wu/pretrain_vg' variant="primary">Repository</Button>
+    <Button href={links.pretrain_repo} variant="primary">Repository</Button>
   </Card.Body>
   </Card>
   </Tab>

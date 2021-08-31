@@ -11,6 +11,8 @@ import {
     Heading,
   } from "./footerStyles";
 import git_logo from './imgs/git_logo.svg';
+import { links } from './links';
+
 
 function Footer(props) {
     return (
@@ -25,19 +27,19 @@ function Footer(props) {
             <Column>
               <Heading>About Us</Heading>
               <FooterLink href="/home">Aim</FooterLink>
-              <FooterLink href='http://vandal.polito.it/'>Our group</FooterLink>
+              <FooterLink href={links.vandal}>Our group</FooterLink>
             </Column>
             <Column>
               <Heading>Software</Heading>
-              <FooterLink href='https://github.com/s252805/benchmarking_vg'>
+              <FooterLink href={links.bench_repo}>
               <Image src={git_logo} width='32' height='32' className='ml-n4 mr-2'/> 
                   Benchmarking
               </FooterLink>
-              <FooterLink href='https://github.com/s252805/datasets_vg'>
+              <FooterLink href={links.data_repo}>
               <Image src={git_logo} width='32' height='32' className='ml-n4 mr-2'/> 
                   Datasets
               </FooterLink>
-              <FooterLink href='https://github.com/rm-wu/pretrain_vg'>
+              <FooterLink href={links.pretrain_repo}>
               <Image src={git_logo} width='32' height='32' className='ml-n4 mr-2'/> 
                   Pretraining
               </FooterLink>
