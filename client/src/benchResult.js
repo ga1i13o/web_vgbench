@@ -68,15 +68,7 @@ function BenchResults(props){
                 key = data.all[tab].results[0].msls_trained_fields.indexOf(sorted);
             }
         }
-        /*
-        else if (data.all[tab].results[0].pitts_trained_fields.includes(sorted)){
-            key = data.all[tab].results[0].pitts_trained_fields.indexOf(sorted);
-            type = 'pitts';
-        }
-        else if (data.all[tab].results[0].msls_trained_fields.includes(sorted)){
-            key = data.all[tab].results[0].msls_trained_fields.indexOf(sorted);
-            type = 'msls';
-        }*/
+
         changeSorting(key, sorted, type, order, tab);
     }
 
