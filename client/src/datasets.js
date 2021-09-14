@@ -1,15 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
-import { Table, Card , Image} from 'react-bootstrap';
+import { useState } from 'react';
+
+import { Table, Card , Image, Button } from 'react-bootstrap';
 import data_table from './tables/datasets/dataset_table.json';
 import { DatasetTable } from './table_data';
 import { datasetTexts } from './textWalls';
 import { availableDatasets } from './modelDatasets';
+import { QueryPosModal } from './queryPosModal';
 
 
 function Datasets(props){
+    const [showQueryPos, setShowQueryPos] = useState(false);
+    const [datasetToShow, setDatasetToShow] = useState({name:'', queryImg: '', posImg: ''});
+    const handleClose = () => setShowQueryPos(false);
+    const handleShow = () => setShowQueryPos(true);
     const datasets_table = new DatasetTable(data_table);
-    console.log(availableDatasets);
     return (
         <>
             <div className="d-block mx-xxl-10 mx-sm-5">
@@ -21,12 +27,8 @@ function Datasets(props){
 
             <div>
                 <Table striped bordered hover className='mx-auto mt-4' style={{width:'70rem', textAlign:'center'}}>
-                    <caption>Table: <b>Summary of the datasets used</b>.Regarding images types:  "panorama" means that the images are 
-                    cropped from a 360°panorama image (and eventually undistorted); "front-view" means that only one (forward facing)
-                     view is available; "phone" means that photos were collected with a smartphone. "panorama" and "front-view"
-                      images were taken with cameras on the roof of a car.
-                      <br/>∗ForMSLS a limited amount of sideways images is
-                       available.
+                    <caption>
+                        {datasetTexts.tableCaption()}
                     </caption>
                     <thead>
                         <tr>
@@ -54,13 +56,21 @@ function Datasets(props){
                     availableDatasets.map( dataset =>
                         <Card className="mt-4">
                             <Card.Header>{dataset.title}</Card.Header>
-                        
                             <Card.Body>
-                                <Card.Title>{dataset.subtitle}</Card.Title>
                                 <Card.Text>
                                     <div className='d-flex'>
                                         <div>
                                             {dataset.textWall()}
+                                            <div className='mt-3'>
+                                            <Button variant='primary' onClick={()=>{
+                                                setDatasetToShow({name: dataset.subtitle, 
+                                                                  queryImg: dataset.imgExamples.query, 
+                                                                  posImg: dataset.imgExamples.pos});
+                                                setShowQueryPos(true);
+                                            }}>
+                                                See query/positive example
+                                            </Button>
+                                        </div>
                                         </div>
 
                                         <div className="text-center ml-5">
@@ -74,7 +84,6 @@ function Datasets(props){
                                             />
                                         </div>
                                     </div>
-                                    
                                     <div className='mt-4'>
                                         Credits: 
                                         <ul>
@@ -90,6 +99,10 @@ function Datasets(props){
                     )
                 }
             </div>
+            <QueryPosModal dataset={datasetToShow} 
+                           show={showQueryPos}
+                           handleShow={handleShow} 
+                           handleClose={handleClose}/>
         </>
     )
 }
