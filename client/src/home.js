@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import pipeline from './imgs/pipeline.png';
-import { Container} from 'react-bootstrap';
+import { Container, Alert } from 'react-bootstrap';
 import { homeText } from './textWalls';
 
 
@@ -24,6 +24,11 @@ function Home(props){
         
             <h2>The Visual Geo-localization benchmark</h2>
             <div className="mt-4">
+                <Alert variant='warning'>
+                    Disclaimer: this website is related to the VG benchmark project, a paper which is currently under review for 
+                    the CVPR 2022 conference. To not undermine the double-blind review process, all links to software and authors
+                    have been removed and will be restored upon acceptance of the paper.
+                </Alert>
                 {homeText()}
             </div>
         </div></>
