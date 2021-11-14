@@ -38,7 +38,7 @@ function Software(props){
     <Card.Text>
         Repository implementing all the options for the possible steps of a VPR pipeline
     </Card.Text>
-    <Button href={links.bench_repo} variant="primary">Repository</Button>
+    <Button variant="primary">Coming Soon</Button>
   </Card.Body>
   </Card>
   </Tab>
@@ -50,7 +50,7 @@ function Software(props){
         This piece of software provides a utility to easily download the datasets analyzed and format them
         the way that the benchmarking software expects
     </Card.Text>
-    <Button href={links.data_repo} variant="primary">Repository</Button>
+    <Button variant="primary">Coming Soon</Button>
   </Card.Body>
   </Card>
   </Tab>
@@ -62,7 +62,7 @@ function Software(props){
         This repository allows to experiment by pre-training the various architectures on 
         landmark recognition datasets such as Google Landmark and Places365
     </Card.Text>
-    <Button href={links.pretrain_repo} variant="primary">Repository</Button>
+    <Button variant="primary">Coming Soon</Button>
   </Card.Body>
   </Card>
   </Tab>
