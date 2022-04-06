@@ -1,5 +1,5 @@
 const links = {
-    bench_repo: 'https://github.com/gmberton/benchmarking_vg',
+    bench_repo: 'https://github.com/gmberton/deep-visual-geo-localization-benchmark',
     data_repo: 'https://github.com/gmberton/datasets_vg',
     pretrain_repo: 'https://github.com/rm-wu/pretrain_vg',
     vandal: 'http://vandal.polito.it',
