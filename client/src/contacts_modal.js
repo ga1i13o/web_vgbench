@@ -43,6 +43,14 @@ function ContactsModal(props) {
                                 bertongabri@gmail.com
                             </Link>
                         </li>
+                        <li><b className='d-inline-block' style={{width:'10rem'}}>Gabriele Trivigno</b>: 
+                            <Link className='ml-1' to='#' onClick={ev=> {
+                                window.location = 'mailto:gabriele.trivigno@polito.it';
+                                ev.preventDefault();
+                            }}> 
+                                gabriele.trivigno@polito.it
+                            </Link>
+                        </li>
                     </ul>
 
                     <h4>Collaborators</h4>
@@ -53,14 +61,6 @@ function ContactsModal(props) {
                                 ev.preventDefault();
                             }}> 
                                 s277004@studenti.polito.it
-                            </Link>
-                        </li>
-                        <li><b className='d-inline-block' style={{width:'10rem'}}>Gabriele Trivigno</b>: 
-                            <Link className='ml-1' to='#' onClick={ev=> {
-                                window.location = 'mailto:gabriele.trivigno@studenti.polito.it';
-                                ev.preventDefault();
-                            }}> 
-                                gabriele.trivigno@studenti.polito.it
                             </Link>
                         </li>
                     </ul>
