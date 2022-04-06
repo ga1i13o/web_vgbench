@@ -21,7 +21,8 @@ function NavigationBar(props) {
                 <NavLink to="/software" style={{ color: '#FFF' }} className="mx-2">Our Software</NavLink>
                 <NavLink to="#" onClick={ev => {
                     ev.preventDefault();
-                }} style={{ color: '#FFF' }} className="mx-2">Contact us(Coming soon)</NavLink>
+                    props.handleShowContacts();
+                }} style={{ color: '#FFF' }} className="mx-2">Contact us</NavLink>
             </Nav>
         </Navbar.Collapse>
     

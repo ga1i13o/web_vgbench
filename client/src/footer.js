@@ -27,30 +27,30 @@ function Footer(props) {
             <Column>
               <Heading>About Us</Heading>
               <FooterLink href="/home">Aim</FooterLink>
-              <FooterLink>Our group<br/>(Coming Soon)</FooterLink>
+              <FooterLink href={links.vandal}>Our group</FooterLink>
             </Column>
             <Column>
               <Heading>Software</Heading>
-              <FooterLink >
+              <FooterLink href={links.bench_repo}>
               <Image src={git_logo} width='32' height='32' className='ml-n4 mr-2'/> 
-                  Benchmarking<br/>(Coming Soon)
+                  Benchmarking
               </FooterLink>
-              <FooterLink>
+              <FooterLink href={links.data_repo}>
               <Image src={git_logo} width='32' height='32' className='ml-n4 mr-2'/> 
-                  Datasets<br/>(Coming Soon)
+                  Datasets
               </FooterLink>
-              <FooterLink>
+              <FooterLink href={links.pretrain_repo}>
               <Image src={git_logo} width='32' height='32' className='ml-n4 mr-2'/> 
-                  Pretraining<br/>(Coming Soon)
+                  Pretraining
               </FooterLink>
             </Column>
             <Column>
               <Heading>Contact Us</Heading>
-              <FooterLink>via Email<br/>(Coming Soon)</FooterLink>
+              <FooterLink onClick={props.handleShowContacts}>via Email</FooterLink>
             </Column>
             <Column>
               <Heading>Social Media</Heading>
-              <FooterLink>
+              <FooterLink href="#">
                 <i className="fab fa-facebook-f">
                   <span style={{ marginLeft: "10px" }}>
                     Coming soon
